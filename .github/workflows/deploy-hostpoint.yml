@@ -1,0 +1,40 @@
+name: Deploy to Hostpoint
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Staging: Passwortschutz. Der bcrypt-Hash liegt NICHT im (öffentlichen) Repo,
+      # sondern im Secret GATE_PASSWORD_HASH und wird hier zur Laufzeit als Datei erzeugt.
+      - name: Zugangs-Config erzeugen
+        env:
+          GATE_PASSWORD_HASH: ${{ secrets.GATE_PASSWORD_HASH }}
+        run: |
+          test -n "$GATE_PASSWORD_HASH" || { echo "Secret GATE_PASSWORD_HASH fehlt"; exit 1; }
+          php -r 'file_put_contents("gate.config.php", "<?php\nreturn " . var_export(["user" => "ruenthai", "hash" => getenv("GATE_PASSWORD_HASH")], true) . ";\n");'
+
+      # Das HTML wird lokal mit `python3 tools/build.py` erzeugt und eingecheckt.
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            .git*
+            .git*/**
+            .github/**
+            tools/**
+            data/**
+            _src/**
+            README.md
+            .htaccess.live

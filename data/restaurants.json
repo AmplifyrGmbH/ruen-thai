@@ -1,0 +1,601 @@
+{
+  "_comment": "Single Source of Truth fuer alle Seiten (tools/build.py erzeugt daraus das HTML). Quellen: fruehere Website ruenthai.ch (Web-Archiv Juli 2025), Google/zuri.net/Wanderlog (Zeiten, Bewertungen). hours: 0=Sonntag ... 6=Samstag. VOR LIVEGANG MIT DEM BETREIBER ABGLEICHEN.",
+  "site": {
+    "name": "Ruen Thai",
+    "url": "https://ruenthairestaurant.ch",
+    "since": 2004,
+    "claim": "Die beste Thai Küche in der Stadt",
+    "mainPhone": "+41442811414",
+    "mainPhoneDisplay": "044 281 14 14",
+    "reservationMail": ""
+  },
+  "locations": [
+    {
+      "key": "enge",
+      "file": "enge",
+      "number": "01",
+      "name": "Ruen Thai by Suthita",
+      "short": "Zürich Enge",
+      "area": "Zürich Enge",
+      "type": "restaurant",
+      "typeLabel": "Restaurant & Café",
+      "theme": "navy",
+      "street": "General-Wille-Strasse 18",
+      "zip": "8002",
+      "city": "Zürich",
+      "tel": "+41442811414",
+      "telDisplay": "044 281 14 14",
+      "rating": "4.6",
+      "ratingCount": "244",
+      "price": "CHF 30–40",
+      "img": "loc-enge",
+      "heroImg": "dish-red-curry",
+      "title": "Thai Restaurant Zürich Enge – Ruen Thai by Suthita",
+      "metaDescription": "Authentische Thai-Küche beim Bahnhof Enge: Mittagsmenü, À-la-carte, Take-away und Catering. Öffnungszeiten, Speisekarte und Tischreservation.",
+      "h1": "Ruen Thai by Suthita",
+      "lead": "Ruen Thai by Suthita ist ein thailändisches Restaurant mit Café an der General-Wille-Strasse 18 in Zürich Enge, 1 Minute vom Bahnhof Enge. Es gibt täglich ein Mittagsmenü, dazu die À-la-carte-Karte, Take-away und Catering.",
+      "story": "Schweizer Qualität, die schmeckt wie bei einer thailändischen Familie zu Hause: Jeden Tag gibt es ein Mittagsmenü, dazu die À-la-carte-Karte mit dem ganz eigenen Ruen-Thai-Geschmack. Für Feiern und Firmenanlässe kochen wir auf Anfrage auch Catering und Partyservice.",
+      "hours": {
+        "0": [],
+        "1": [
+          [
+            "11:00",
+            "17:00"
+          ],
+          [
+            "18:00",
+            "22:30"
+          ]
+        ],
+        "2": [
+          [
+            "11:00",
+            "17:00"
+          ],
+          [
+            "18:00",
+            "22:30"
+          ]
+        ],
+        "3": [
+          [
+            "11:00",
+            "17:00"
+          ],
+          [
+            "18:00",
+            "22:30"
+          ]
+        ],
+        "4": [
+          [
+            "11:00",
+            "17:00"
+          ],
+          [
+            "18:00",
+            "22:30"
+          ]
+        ],
+        "5": [
+          [
+            "11:00",
+            "17:00"
+          ],
+          [
+            "18:00",
+            "22:30"
+          ]
+        ],
+        "6": [
+          [
+            "18:00",
+            "22:30"
+          ]
+        ]
+      },
+      "facts": [
+        "Beim Bahnhof Enge, 1 Minute zu Fuss",
+        "Parkhaus Park Hyatt, ca. 6 Minuten zu Fuss",
+        "Tägliches Mittagsmenü und À-la-carte-Karte",
+        "Catering und Party-Service auf Anfrage",
+        "Reservation empfohlen"
+      ],
+      "transit": "Bahnhof Enge (1 Min.), Parkhaus Park Hyatt (ca. 6 Min.)",
+      "reserve": true,
+      "menuTitle": "Auszug aus der Speisekarte",
+      "menuNote": "Preise in CHF, Stand frühere Website. Vor Livegang mit dem Betreiber abgleichen.",
+      "menu": [
+        {
+          "n": "Poh Pia Taud Vegi",
+          "d": "Frühlingsrollen mit Gemüsefüllung",
+          "p": "3 Stk. 10.00 · 5 Stk. 14.00"
+        },
+        {
+          "n": "Satay Gai",
+          "d": "Poulet-Spiessli (CH) mit Erdnuss-Sauce",
+          "p": "13.50 · 19.50"
+        },
+        {
+          "n": "Goong Thong",
+          "d": "Teigbeutel mit Crevetten und Schweinefleisch, süss-sauer",
+          "p": "13.50 · 19.50"
+        },
+        {
+          "n": "Guay Tiew Gai",
+          "d": "Nudeln mit Poulet (CH), Ei, Gemüse, Sojasprossen und Koriander",
+          "p": "Restaurant 28.50 · To-go 26.50"
+        }
+      ],
+      "reviews": [
+        {
+          "t": "Very friendly and quick service. Food is ok. Good size portions.",
+          "a": "Vlad M."
+        },
+        {
+          "t": "Superb takeout.",
+          "a": "Agnieszka K."
+        },
+        {
+          "t": "Delicious food, friendly staff and good service. Highly recommended.",
+          "a": "Sumalee S."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wo befindet sich Ruen Thai by Suthita?",
+          "a": "An der General-Wille-Strasse 18, 8002 Zürich, in der Enge. Der Bahnhof Enge ist 1 Minute zu Fuss entfernt, das Parkhaus Park Hyatt ca. 6 Minuten."
+        },
+        {
+          "q": "Wann ist das Restaurant geöffnet?",
+          "a": "Montag bis Freitag von 11:00 bis 17:00 und von 18:00 bis 22:30 Uhr, am Samstag von 18:00 bis 22:30 Uhr. Am Sonntag ist geschlossen."
+        },
+        {
+          "q": "Muss ich reservieren?",
+          "a": "Eine Reservation wird empfohlen, besonders am Abend. Sie können online anfragen oder uns unter 044 281 14 14 anrufen."
+        },
+        {
+          "q": "Gibt es Take-away und Catering?",
+          "a": "Ja. Die Speisekarte führt eigene To-go-Preise, und für Feiern oder Firmenanlässe kochen wir auf Anfrage Catering und Partyservice. Sagen Sie uns Menüwunsch und Gästezahl."
+        }
+      ],
+      "gallery": [
+        {
+          "img": "g-enge-terrasse",
+          "t": "Terrasse an der General-Wille-Strasse",
+          "real": true,
+          "alt": "Aussenbereich von Ruen Thai in der Enge mit gedeckten Tischen, Menütafel und Hortensien"
+        },
+        {
+          "img": "dish-red-curry",
+          "t": "Rotes Curry mit Jasminreis",
+          "alt": "Rotes Thai-Curry mit Poulet auf einem weissen Teller"
+        },
+        {
+          "img": "g-enge-satay",
+          "t": "Satay mit Erdnuss-Sauce",
+          "alt": "Gegrillte Satay-Spiesse mit Erdnusssauce"
+        },
+        {
+          "img": "g-enge-fruehlingsrollen",
+          "t": "Frühlingsrollen",
+          "alt": "Knusprige Frühlingsrollen mit Dip"
+        },
+        {
+          "img": "g-enge-tomkha",
+          "t": "Tom Kha mit Reis",
+          "alt": "Kokossuppe Tom Kha mit Reis"
+        },
+        {
+          "img": "g-enge-eistee",
+          "t": "Thai Eistee",
+          "alt": "Gekühlter Thai-Eistee im Glas"
+        }
+      ],
+      "galleryTitle": "Terrasse, Teller und Tisch"
+    },
+    {
+      "key": "thalwil",
+      "file": "thalwil",
+      "number": "02",
+      "name": "Ruen Thai Thalwil",
+      "short": "Thalwil",
+      "area": "Thalwil",
+      "type": "restaurant",
+      "typeLabel": "Restaurant",
+      "theme": "lacquer",
+      "street": "Ludretikonerstrasse 21",
+      "zip": "8800",
+      "city": "Thalwil",
+      "tel": "+41434435989",
+      "telDisplay": "043 443 59 89",
+      "rating": "4.6",
+      "ratingCount": "299",
+      "price": "CHF 20–50",
+      "img": "loc-thalwil",
+      "heroImg": "dish-green-curry",
+      "title": "Thai Restaurant Thalwil – Ruen Thai seit 2004",
+      "metaDescription": "Das erste Ruen Thai in Thalwil, seit 2004: authentische Thai-Küche, gemütliche Atmosphäre, Sitzplätze im Freien. Öffnungszeiten, Speisekarte und Reservation.",
+      "h1": "Ruen Thai Thalwil",
+      "lead": "Ruen Thai Thalwil ist ein thailändisches Restaurant an der Ludretikonerstrasse 21 in Thalwil, nahe beim Bahnhof. Es wurde 2004 eröffnet und ist das erste Ruen-Thai-Restaurant, mit gemütlicher Atmosphäre und Sitzplätzen im Freien.",
+      "story": "Das Ruen Thai Restaurant wurde 2004 in Thalwil eröffnet und legte den Grundstein für authentische Thai-Küche. Die Gerichte entstehen nach eigens kreierten Rezepten mit langjähriger Tradition, in stilvoll eingerichteten Räumen mit viel Liebe zum Detail.",
+      "hours": {
+        "0": [],
+        "1": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "18:00",
+            "23:00"
+          ]
+        ],
+        "2": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "18:00",
+            "23:00"
+          ]
+        ],
+        "3": [
+          [
+            "18:00",
+            "23:00"
+          ]
+        ],
+        "4": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "18:00",
+            "23:00"
+          ]
+        ],
+        "5": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "18:00",
+            "23:00"
+          ]
+        ],
+        "6": [
+          [
+            "18:00",
+            "23:00"
+          ]
+        ]
+      },
+      "facts": [
+        "Eröffnet 2004, das erste Ruen-Thai-Restaurant",
+        "Auf TripAdvisor als Nr. 1 in Thalwil gelistet (Stand frühere Website)",
+        "Nahe Bahnhof Thalwil, Parkplätze in der Nähe",
+        "Sitzplätze im Freien",
+        "Reservation am Abend empfohlen"
+      ],
+      "transit": "Nahe Bahnhof Thalwil und Zürichsee",
+      "reserve": true,
+      "menuTitle": "Beliebte Gerichte",
+      "menuNote": "Gästefavoriten, die in Bewertungen immer wieder genannt werden. Die vollständige Speisekarte folgt vom Betreiber.",
+      "menu": [
+        {
+          "n": "Pad Thai",
+          "d": "Gebratene Reisnudeln, von Gästen als bestes Pad Thai in Thalwil gelobt",
+          "p": ""
+        },
+        {
+          "n": "Gaeng Keow Wan",
+          "d": "Grünes Curry",
+          "p": ""
+        },
+        {
+          "n": "Rotes Curry mit Poulet und Ananas",
+          "d": "Gästeempfehlung, mild bis scharf",
+          "p": ""
+        },
+        {
+          "n": "Goong Pong Garee",
+          "d": "Crevetten in Curry-Sauce",
+          "p": ""
+        }
+      ],
+      "reviews": [
+        {
+          "t": "This is it “Pad Thai”. It was excellent and best Pad Thai ever in Thalwil. Very cute and cozy decoration. For dinner, must make a reservation!",
+          "a": "Pedro M."
+        },
+        {
+          "t": "Kleines, liebevoll gestaltetes Restaurant mit exzellenter Thai Küche. Freundliche Bedienung. Sehr zu empfehlen!",
+          "a": "Gast aus Zürich"
+        },
+        {
+          "t": "Great Thai restaurant, food is authentic and very good quality. Service is wonderful. Super recommended for families and friends.",
+          "a": "Andrea R."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wo befindet sich Ruen Thai in Thalwil?",
+          "a": "An der Ludretikonerstrasse 21, 8800 Thalwil, nahe beim Bahnhof Thalwil und dem Zürichsee. Parkplätze gibt es in der Nähe."
+        },
+        {
+          "q": "Wann ist das Restaurant geöffnet?",
+          "a": "Montag, Dienstag, Donnerstag und Freitag von 11:30 bis 14:00 und von 18:00 bis 23:00 Uhr, Mittwoch und Samstag nur abends von 18:00 bis 23:00 Uhr. Am Sonntag ist geschlossen."
+        },
+        {
+          "q": "Sollte ich reservieren?",
+          "a": "Am Abend empfehlen wir eine Reservation. Sie können online anfragen oder anrufen: 043 443 59 89."
+        },
+        {
+          "q": "Seit wann gibt es Ruen Thai in Thalwil?",
+          "a": "Das Restaurant wurde 2004 eröffnet und ist das erste Ruen-Thai-Restaurant. Daraus sind später die Standorte in Zürich entstanden."
+        }
+      ],
+      "gallery": [
+        {
+          "img": "g-thalwil-padthai",
+          "t": "Pad Thai mit Crevetten",
+          "alt": "Pad Thai mit Crevetten, Limette und Sprossen"
+        },
+        {
+          "img": "dish-green-curry",
+          "t": "Grünes Curry",
+          "alt": "Grünes Thai-Curry in einer schwarzen Schale"
+        },
+        {
+          "img": "g-thalwil-curry",
+          "t": "Curry mit Reis",
+          "alt": "Orangefarbenes Thai-Curry mit Reis auf türkisem Geschirr"
+        },
+        {
+          "img": "g-thalwil-padthai2",
+          "t": "Pad Thai, liebevoll angerichtet",
+          "alt": "Pad Thai mit Orchideen-Dekoration auf langem Teller"
+        },
+        {
+          "img": "g-thalwil-curry2",
+          "t": "Curry mit Poulet und Ananas",
+          "alt": "Curry mit Poulet und Ananas in einer Schale"
+        },
+        {
+          "img": "g-thalwil-padthai3",
+          "t": "Pad Thai mit Reisnudeln",
+          "alt": "Pad Thai mit Reisnudeln, Erdnüssen und Limette"
+        }
+      ],
+      "galleryTitle": "Wie bei einer Familie zu Hause"
+    },
+    {
+      "key": "badenerstrasse",
+      "file": "badenerstrasse",
+      "number": "03",
+      "name": "Ruenthai 2 Take Away",
+      "short": "Take Away Badenerstrasse",
+      "area": "Zürich Badenerstrasse",
+      "type": "takeaway",
+      "typeLabel": "Take Away",
+      "theme": "saffron",
+      "street": "Badenerstrasse 582",
+      "zip": "8048",
+      "city": "Zürich",
+      "tel": "+41438174780",
+      "telDisplay": "043 817 47 80",
+      "rating": "4.3",
+      "ratingCount": "112",
+      "price": "CHF 10–20",
+      "img": "loc-badenerstrasse",
+      "heroImg": "dish-krapao",
+      "title": "Thai Take Away Zürich Badenerstrasse – Ruenthai 2",
+      "metaDescription": "Thai Take Away an der Badenerstrasse 582 in Zürich: täglich frische Mittagsmenüs, auch vegetarisch, ab CHF 10. Öffnungszeiten Mo–Fr und Telefon.",
+      "h1": "Ruenthai 2 Take Away",
+      "lead": "Ruenthai 2 ist ein Thai Take Away an der Badenerstrasse 582 in Zürich. Von Montag bis Freitag gibt es täglich frische Mittagsmenüs zum Mitnehmen, auch vegetarisch, für etwa CHF 10 bis 20 pro Person.",
+      "story": "Einfach gutes Mittagessen: leckere Thai-Gerichte mit authentisch intensivem Geschmack, jeden Tag frisch zubereitet. Wer wenig Zeit hat, ruft kurz vorher an und holt sein Essen ab.",
+      "hours": {
+        "0": [],
+        "1": [
+          [
+            "10:30",
+            "17:00"
+          ]
+        ],
+        "2": [
+          [
+            "10:30",
+            "17:00"
+          ]
+        ],
+        "3": [
+          [
+            "10:30",
+            "17:00"
+          ]
+        ],
+        "4": [
+          [
+            "10:30",
+            "17:00"
+          ]
+        ],
+        "5": [
+          [
+            "10:30",
+            "17:00"
+          ]
+        ],
+        "6": []
+      },
+      "facts": [
+        "Take Away, Montag bis Freitag durchgehend geöffnet",
+        "Täglich frische Mittagsmenüs, auch vegetarisch",
+        "Sitzplätze draussen",
+        "Kartenzahlung möglich",
+        "Mittags oft Warteschlange: kurz vorher anrufen spart Zeit"
+      ],
+      "transit": "Bus Käppeli (ca. 2 Min.), Bus Letzipark West (ca. 3 Min.)",
+      "reserve": false,
+      "menuTitle": "Zum Mitnehmen",
+      "menuNote": "Das Angebot wechselt täglich. Aktuelle Tagesmenüs erfahren Sie telefonisch.",
+      "menu": [
+        {
+          "n": "Curry mit Reis",
+          "d": "Mit Schweizer Poulet, grosse Portion",
+          "p": ""
+        },
+        {
+          "n": "Pad Thai",
+          "d": "Gebratene Reisnudeln",
+          "p": ""
+        },
+        {
+          "n": "Spezialreis",
+          "d": "Jeden Tag ein anderer Geschmack, zum Beispiel Kokosreis",
+          "p": ""
+        },
+        {
+          "n": "Vegetarisches Tagesmenü",
+          "d": "Täglich frisch",
+          "p": ""
+        }
+      ],
+      "reviews": [
+        {
+          "t": "Great Thai take away with daily fresh menus including vegetarian meals.",
+          "a": "Miro K."
+        },
+        {
+          "t": "Great value for money and super legit Thai food.",
+          "a": "Jeanine"
+        },
+        {
+          "t": "Super tasty authentic Thai cuisine: not just Thai curry but quite a good variety. Try their special rice, a different flavour every time.",
+          "a": "Fabian H."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wo ist das Take Away Ruenthai 2?",
+          "a": "An der Badenerstrasse 582, 8048 Zürich. Bus Käppeli und Bus Letzipark West sind nur wenige Gehminuten entfernt."
+        },
+        {
+          "q": "Wann ist das Take Away geöffnet?",
+          "a": "Montag bis Freitag von 10:30 bis 17:00 Uhr. Am Wochenende ist geschlossen."
+        },
+        {
+          "q": "Gibt es vegetarische Gerichte?",
+          "a": "Ja, es gibt täglich frische Mittagsmenüs, auch vegetarisch. Das Angebot wechselt, rufen Sie für das aktuelle Menü an: 043 817 47 80."
+        },
+        {
+          "q": "Was kostet ein Mittagessen?",
+          "a": "Pro Person rechnen Sie mit etwa CHF 10 bis 20."
+        }
+      ],
+      "gallery": [
+        {
+          "img": "dish-krapao",
+          "t": "Pad Kra Pao mit Spiegelei",
+          "alt": "Wok-Poulet mit Basilikum, Chili und Spiegelei auf Reis"
+        },
+        {
+          "img": "g-bader-curryreis",
+          "t": "Curry mit Reis",
+          "alt": "Gemüse-Curry auf Reis in einer Schale"
+        },
+        {
+          "img": "g-bader-rollen",
+          "t": "Frühlingsrollen mit Dip",
+          "alt": "Frühlingsrollen mit Chilisauce auf einem Teller"
+        },
+        {
+          "img": "g-bader-suppe",
+          "t": "Vegetarisches Tagesmenü",
+          "alt": "Cremiges Curry mit Tofu und Gemüse im Topf"
+        },
+        {
+          "img": "g-bader-rollen2",
+          "t": "Knusprig frittiert",
+          "alt": "Frittierte Rollen auf einem Bananenblatt"
+        },
+        {
+          "img": "g-bader-eistee",
+          "t": "Thai Eistee zum Mitnehmen",
+          "alt": "Eistee im hohen Glas"
+        }
+      ],
+      "galleryTitle": "Frisch gekocht, schnell eingepackt"
+    }
+  ],
+  "dishes": [
+    {
+      "img": "dish-padthai",
+      "title": "Pad Thai",
+      "text": "Gebratene Reisnudeln mit Sprossen, Erdnüssen und Limette."
+    },
+    {
+      "img": "dish-green-curry",
+      "title": "Gaeng Keow Wan",
+      "text": "Grünes Curry mit Thai-Basilikum, cremig und aromatisch scharf."
+    },
+    {
+      "img": "dish-red-curry",
+      "title": "Rotes Curry",
+      "text": "Mit Poulet und Gemüse, dazu Jasminreis."
+    },
+    {
+      "img": "dish-tomyum",
+      "title": "Tom Yum",
+      "text": "Würzig-saure Suppe mit Crevetten und Limette."
+    },
+    {
+      "img": "dish-krapao",
+      "title": "Pad Kra Pao",
+      "text": "Wok-Poulet mit Basilikum und Chili auf Reis."
+    },
+    {
+      "img": "dish-teller",
+      "title": "Zum Teilen",
+      "text": "Frühlingsrollen, Curry und Reis für den ganzen Tisch."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Welche Standorte gibt es?",
+      "a": "Ruen Thai gibt es an drei Standorten: das Restaurant Ruen Thai by Suthita an der General-Wille-Strasse 18 in Zürich Enge, das Restaurant Ruen Thai an der Ludretikonerstrasse 21 in Thalwil und das Take Away Ruenthai 2 an der Badenerstrasse 582 in Zürich."
+    },
+    {
+      "q": "Wann sind Sie geöffnet?",
+      "a": "Enge: Mo–Fr 11–17 und 18–22:30 Uhr, Sa ab 18 Uhr. Thalwil: Mo, Di, Do, Fr 11:30–14 und 18–23 Uhr, Mi und Sa ab 18 Uhr. Take Away Badenerstrasse: Mo–Fr 10:30–17 Uhr. Sonntag ist überall geschlossen."
+    },
+    {
+      "q": "Kann ich einen Tisch reservieren?",
+      "a": "Ja, in den Restaurants Enge und Thalwil. Eine Reservation ist besonders am Abend empfohlen. Nutzen Sie das Formular auf der Standortseite oder rufen Sie an: Enge 044 281 14 14, Thalwil 043 443 59 89."
+    },
+    {
+      "q": "Gibt es Take Away?",
+      "a": "Ja. Das Take Away Ruenthai 2 an der Badenerstrasse 582 bietet täglich frische Mittagsmenüs zum Mitnehmen (043 817 47 80). Auch in der Enge können Sie Gerichte zum Mitnehmen bestellen."
+    },
+    {
+      "q": "Gibt es vegetarische Gerichte?",
+      "a": "Ja, zum Beispiel vegetarische Frühlingsrollen in der Enge und ein vegetarisches Tagesmenü im Take Away an der Badenerstrasse. Fragen Sie bei Allergien am besten direkt bei uns nach."
+    },
+    {
+      "q": "Bieten Sie Catering oder Partyservice an?",
+      "a": "Ja, in der Enge (Ruen Thai by Suthita). Sagen Sie uns Menüwunsch und Gästezahl, wir kümmern uns um den Rest. Telefon 044 281 14 14."
+    },
+    {
+      "q": "Seit wann gibt es Ruen Thai?",
+      "a": "Das erste Ruen Thai Restaurant eröffnete 2004 in Thalwil. Seither sind weitere Standorte in Zürich dazugekommen."
+    },
+    {
+      "q": "Wie hoch sind die Preise?",
+      "a": "Pro Person rechnen Sie in der Enge mit etwa CHF 30–40, in Thalwil mit CHF 20–50 und im Take Away an der Badenerstrasse mit CHF 10–20."
+    }
+  ]
+}

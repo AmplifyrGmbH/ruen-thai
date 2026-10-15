@@ -155,6 +155,7 @@ def header(active, cta):
         a("/enge", "Enge", "enge"),
         a("/thalwil", "Thalwil", "thalwil"),
         a("/badenerstrasse", "Badenerstrasse", "badenerstrasse"),
+        a("/catering", "Catering", "catering"),
         a("/ueber-uns", "Über uns", "about"),
         a("/kontakt", "Kontakt", "kontakt"),
     ])
@@ -193,6 +194,7 @@ def footer():
         <li><a href="/enge">Ruen Thai by Suthita, Enge</a></li>
         <li><a href="/thalwil">Ruen Thai, Thalwil</a></li>
         <li><a href="/badenerstrasse">Take Away Badenerstrasse</a></li>
+        <li><a href="/catering">Catering &amp; Partyservice</a></li>
         <li><a href="/ueber-uns">Über uns</a></li>
         <li><a href="/kontakt">Kontakt</a></li>
         <li><a href="/#faq">Häufige Fragen</a></li>
@@ -416,6 +418,8 @@ def page_location(l):
     )
     reviews = "".join(f'<figure class="review reveal"><blockquote>{e(r["t"])}</blockquote><figcaption>{e(r["a"])}</figcaption></figure>' for r in l["reviews"])
     facts = "".join(f"<li>{e(f)}</li>" for f in l["facts"])
+    catering_link = ('<p style="margin-top:22px"><a class="btn btn--ghost btn--sm" href="/catering">Catering für Ihren Anlass <span class="arrow" aria-hidden="true">→</span></a></p>'
+                     if l.get("catering") else "")
     others_html = "".join(
         f'<a class="other theme-{o["theme"]}" href="/{o["file"]}"><b>{e(o["name"])}</b><span>{e(o["typeLabel"])} · {e(o["city"])}</span></a>' for o in others
     )
@@ -427,9 +431,10 @@ def page_location(l):
       <div class="reserve__text">
         <p class="eyebrow">Tischreservation</p>
         <h2 class="h2">Ihr Tisch bei <em>{e(l["short"])}</em>.</h2>
-        <p>Senden Sie uns Ihre Anfrage, wir bestätigen sie telefonisch oder per E-Mail. Für kurzfristige Reservationen rufen Sie am besten direkt an: <a href="tel:{l["tel"]}">{e(l["telDisplay"])}</a>.</p>
+        <p>Senden Sie uns Ihre Anfrage, wir bestätigen sie telefonisch oder per E-Mail. Mit Ihrer E-Mail-Adresse erhalten Sie sofort eine Eingangsbestätigung. Für kurzfristige Reservationen rufen Sie am besten direkt an: <a href="tel:{l["tel"]}">{e(l["telDisplay"])}</a>.</p>
       </div>
-      <form class="form" data-reserve-form action="/anfrage.php" method="post">
+      <form class="form" data-reserve-form data-success="Danke! Ihre Anfrage ist bei uns. Wir bestätigen Ihren Tisch so rasch wie möglich." action="/anfrage.php" method="post">
+        <input type="hidden" name="typ" value="reservation">
         <input type="hidden" name="ort" value="{e(l["name"])}">
         <div class="field hp" aria-hidden="true"><label>Webseite<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="form__row">
@@ -508,6 +513,7 @@ def page_location(l):
       <h2 class="h2">Das erwartet <em>Sie</em>.</h2>
       <p class="lead">{e(l["story"])}</p>
       <ul class="facts">{facts}</ul>
+      {catering_link}
     </div>
     <aside class="hours-card reveal">
       <h2 class="serif">Öffnungszeiten</h2>
@@ -615,7 +621,9 @@ def page_datenschutz():
 <h2>Hosting und Server-Logfiles</h2>
 <p>Diese Website wird bei Hostpoint AG (Schweiz) gehostet. Beim Aufruf werden technisch notwendige Daten (IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser) in Server-Logfiles gespeichert. Sie dienen dem sicheren Betrieb der Website.</p>
 <h2>Reservationsanfragen</h2>
-<p>Wenn Sie das Reservationsformular verwenden, werden Ihre Angaben (Name, Telefon, Datum, Uhrzeit, Personenzahl, optional E-Mail und Bemerkung) per E-Mail an das gewählte Restaurant gesendet und ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+<p>Wenn Sie das Reservationsformular verwenden, werden Ihre Angaben (Name, Telefon, Datum, Uhrzeit, Personenzahl, optional E-Mail und Bemerkung) per E-Mail an das gewählte Restaurant gesendet und ausschliesslich zur Bearbeitung Ihrer Anfrage verwendet. Geben Sie Ihre E-Mail-Adresse an, erhalten Sie eine automatische Eingangsbestätigung.</p>
+<h2>Catering-Anfragen</h2>
+<p>Wenn Sie das Catering-Formular verwenden, werden Ihre Angaben (Name, optional Firma, Telefon, E-Mail, Datum, Gästezahl, Anlass, Ort und Wünsche) per E-Mail an Ruen Thai gesendet und ausschliesslich zur Bearbeitung Ihrer Anfrage und für die Offerte verwendet. Sie erhalten eine automatische Eingangsbestätigung.</p>
 <h2>Google Maps</h2>
 <p>Karten werden erst nach Ihrem Klick auf «Karte anzeigen» von Google Maps geladen. Dabei werden Daten (u. a. Ihre IP-Adresse) an Google übertragen. Ohne Klick findet keine Übertragung statt.</p>
 <h2>Schriften, Cookies und Tracking</h2>
@@ -806,7 +814,162 @@ def page_contact():
   <div class="container">
     <h2 class="h2">Lieber <em style="color:var(--gold)">reservieren</em>?</h2>
     <p>In den Restaurants Enge und Thalwil können Sie online einen Tisch anfragen.</p>
-    <div class="cta-band__links"><a class="btn btn--accent" href="/enge#reservation">Tisch in der Enge</a><a class="btn btn--accent" href="/thalwil#reservation">Tisch in Thalwil</a></div>
+    <div class="cta-band__links"><a class="btn btn--accent" href="/enge#reservation">Tisch in der Enge</a><a class="btn btn--accent" href="/thalwil#reservation">Tisch in Thalwil</a><a class="btn btn--ghost" style="color:var(--cream)" href="/catering#anfrage">Catering anfragen</a></div>
+  </div>
+</section>
+
+</main>
+""" + footer()
+    return out
+
+
+CATERING_FAQ = [
+    {"q": "Bietet Ruen Thai Catering an?",
+     "a": "Ja. Ruen Thai bietet Catering und Partyservice für Firmenanlässe, Apéros, Geburtstage und Familienfeiern. Gekocht wird in unserem Restaurant Ruen Thai by Suthita in Zürich Enge."},
+    {"q": "Welche Gerichte gibt es im Catering?",
+     "a": "Wir stellen das Menü aus unserer Küche nach Ihren Wünschen zusammen, zum Beispiel Frühlingsrollen, Satay-Spiessli mit Erdnuss-Sauce, Currys mit Jasminreis oder Pad Thai. Vegetarische Gerichte sind möglich. Allergien berücksichtigen wir gerne, bitte geben Sie diese in der Anfrage an."},
+    {"q": "Was kostet ein Catering?",
+     "a": "Der Preis hängt von Gästezahl, Menü und Service ab. Nach Ihrer Anfrage erhalten Sie einen Menüvorschlag mit Offerte."},
+    {"q": "Wie früh sollte ich anfragen?",
+     "a": "So früh wie möglich, besonders bei grösseren Gruppen und an Wochenenden. Für kurzfristige Anlässe rufen Sie uns am besten direkt an: 044 281 14 14."},
+    {"q": "Wie läuft eine Catering-Anfrage ab?",
+     "a": "Sie senden uns Datum, Gästezahl, Anlass und Ihre Wünsche über das Formular oder per Telefon. Wir melden uns mit einem Menüvorschlag und einer Offerte. Nach Ihrer Bestätigung kochen wir frisch für Ihren Anlass."},
+]
+
+
+def page_catering():
+    enge = next(l for l in LOCS if l["key"] == "enge")
+    gallery_items = [
+        ("dish-red-curry", "Rotes Curry mit Jasminreis", "Rotes Thai-Curry mit Poulet und Jasminreis"),
+        ("g-enge-satay", "Satay mit Erdnuss-Sauce", "Gegrillte Satay-Spiesse mit Erdnusssauce"),
+        ("g-enge-fruehlingsrollen", "Frühlingsrollen", "Knusprige Frühlingsrollen mit Dip"),
+        ("dish-green-curry", "Grünes Curry", "Grünes Thai-Curry mit Thai-Basilikum"),
+        ("dish-padthai", "Pad Thai", "Pad Thai mit Sprossen, Erdnüssen und Limette"),
+    ]
+    gallery = "".join(f'<figure class="reveal">{img(i, alt)}<figcaption><b>{e(t)}</b></figcaption></figure>' for i, t, alt in gallery_items)
+    schema = {"@context": "https://schema.org", "@graph": [
+        org_schema(),
+        {"@type": "Service", "@id": BASE + "/catering#service", "name": "Thai-Catering und Partyservice",
+         "serviceType": "Catering", "url": BASE + "/catering",
+         "description": "Thai-Catering und Partyservice von Ruen Thai für Firmenanlässe, Apéros, Geburtstage und Familienfeiern, gekocht im Restaurant Ruen Thai by Suthita in Zürich Enge.",
+         "provider": {"@id": f'{BASE}/{enge["file"]}#restaurant'},
+         "brand": {"@id": BASE + "/#organization"},
+         "areaServed": {"@type": "City", "name": "Zürich"}},
+        restaurant_schema(enge),
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Startseite", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Catering", "item": BASE + "/catering"}]},
+        faq_schema(CATERING_FAQ),
+    ]}
+    out = head("Thai-Catering Zürich – Partyservice von Ruen Thai",
+               "Thai-Catering für Firmenanlässe, Apéros und Feiern in Zürich: frisch gekocht von Ruen Thai in der Enge. Jetzt online anfragen und Menüvorschlag mit Offerte erhalten.",
+               "/catering", jsonld(schema))
+    out += "<body>\n" + header("catering", ("#anfrage", "Catering anfragen"))
+    out += f"""<main id="main">
+
+<section class="pg-hero">
+  <div class="container">
+    <nav class="crumbs crumbs--dark" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><span aria-current="page">Catering</span></nav>
+    <p class="eyebrow">Catering &amp; Partyservice</p>
+    <h1 class="pg-hero__title">Thai-Küche für <em>Ihren Anlass</em>.</h1>
+    <div class="pg-hero__grid">
+      <div class="pg-hero__text">
+        <p class="dropcap">Ruen Thai bietet Catering und Partyservice für Firmenanlässe, Apéros, Geburtstage und Familienfeiern. Gekocht wird in unserem Restaurant Ruen Thai by Suthita in Zürich Enge, nach denselben Rezepten wie im Restaurant.</p>
+        <p>Sie sagen uns Datum, Gästezahl und Wünsche. Wir stellen das Menü zusammen und senden Ihnen einen Vorschlag mit Offerte.</p>
+        <p style="margin-top:28px"><a class="btn btn--primary" href="#anfrage">Catering anfragen <span class="arrow" aria-hidden="true">→</span></a> <a class="btn btn--ghost" href="tel:{enge["tel"]}">{e(enge["telDisplay"])}</a></p>
+      </div>
+      <figure class="pg-hero__photo">{img("dish-teller", "Thai-Gerichte zum Teilen für ein Catering", priority=True, lazy=False)}<figcaption>Gerichte zum Teilen, ideal für Apéro und Buffet.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div><p class="eyebrow">Anlässe</p><h2 class="h2">Für jede <em>Gelegenheit</em>.</h2></div>
+      <p class="lead">Vom Apéro im Büro bis zum Familienfest: Wir richten das Menü nach Anlass und Gästezahl.</p>
+    </div>
+    <div class="principles">
+      <div class="reveal"><span>01</span><h3>Firmenanlässe und Apéros</h3><p>Fingerfood wie Frühlingsrollen und Satay-Spiessli für Apéro, Teamevent oder Kundenanlass.</p></div>
+      <div class="reveal"><span>02</span><h3>Geburtstage und Familienfeste</h3><p>Currys, Nudeln und Wok-Gerichte zum Teilen, damit alle am Tisch etwas finden.</p></div>
+      <div class="reveal"><span>03</span><h3>Vegetarisch und nach Wunsch</h3><p>Vegetarische Gerichte sind möglich. Allergien und Wünsche berücksichtigen wir gerne.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head">
+      <div><p class="eyebrow">Aus unserer Küche</p><h2 class="h2">Frisch gekocht, <em>zum Teilen</em>.</h2></div>
+      <p class="lead">Eine Auswahl an Gerichten, die sich für Catering besonders eignen. Das Menü stellen wir mit Ihnen zusammen.</p>
+    </div>
+    <div class="bento bento--loc">{gallery}</div>
+    <p class="photo-note">Symbolfotos. Die Bilder der Gerichte liefert der Betreiber.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="order theme-lacquer waves reveal">
+      <div>
+        <p class="eyebrow">So funktioniert es</p>
+        <h2 class="h2">In drei Schritten <em>zum Catering</em>.</h2>
+      </div>
+      <ol class="order__steps">
+        <li>Anfrage senden mit Datum, Gästezahl, Anlass und Wünschen</li>
+        <li>Wir melden uns mit Menüvorschlag und Offerte</li>
+        <li>Nach Ihrer Bestätigung kochen wir frisch für Ihren Anlass</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream" id="anfrage">
+  <div class="container">
+    <div class="reserve theme-navy waves reveal">
+      <div class="reserve__text">
+        <p class="eyebrow">Catering-Anfrage</p>
+        <h2 class="h2">Erzählen Sie uns von <em>Ihrem Anlass</em>.</h2>
+        <p>Je genauer Ihre Angaben, desto passender unser Vorschlag. Sie erhalten sofort eine Eingangsbestätigung per E-Mail, wir melden uns danach persönlich. Lieber telefonisch? <a href="tel:{enge["tel"]}">{e(enge["telDisplay"])}</a>.</p>
+      </div>
+      <form class="form" data-reserve-form data-success="Danke! Ihre Catering-Anfrage ist bei uns. Wir melden uns mit einem Vorschlag." action="/anfrage.php" method="post">
+        <input type="hidden" name="typ" value="catering">
+        <div class="field hp" aria-hidden="true"><label>Webseite<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="form__row">
+          <div class="field"><label for="c-anlass">Anlass *</label>
+            <select id="c-anlass" name="anlass" required><option value="" selected disabled>Bitte wählen</option><option>Firmenanlass</option><option>Apéro</option><option>Geburtstag</option><option>Familienfest</option><option>Hochzeit</option><option>Anderer Anlass</option></select></div>
+          <div class="field"><label for="c-date">Datum *</label><input id="c-date" name="datum" type="date" required></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="c-gaeste">Anzahl Gäste *</label><input id="c-gaeste" name="gaeste" type="number" min="1" max="2000" inputmode="numeric" required></div>
+          <div class="field"><label for="c-service">Lieferung oder Abholung *</label>
+            <select id="c-service" name="service" required><option value="" selected disabled>Bitte wählen</option><option>Lieferung</option><option>Abholung in der Enge</option><option>Noch offen</option></select></div>
+        </div>
+        <div class="field"><label for="c-ort">Ort des Anlasses (optional)</label><input id="c-ort" name="eventort" type="text" autocomplete="street-address" placeholder="z. B. Firmenadresse in Zürich"></div>
+        <div class="form__row">
+          <div class="field"><label for="c-name">Name *</label><input id="c-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="c-firma">Firma (optional)</label><input id="c-firma" name="firma" type="text" autocomplete="organization"></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="c-tel">Telefon *</label><input id="c-tel" name="telefon" type="tel" required autocomplete="tel"></div>
+          <div class="field"><label for="c-mail">E-Mail *</label><input id="c-mail" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <div class="field"><label for="c-msg">Wünsche (optional)</label><textarea id="c-msg" name="bemerkung" rows="4" placeholder="z. B. Lieblingsgerichte, vegetarisch, Allergien, Budget pro Person"></textarea></div>
+        <button class="btn" type="submit">Anfrage senden <span class="arrow" aria-hidden="true">→</span></button>
+        <p class="form__status" role="status" aria-live="polite"></p>
+        <p class="form__small">Mit dem Absenden stimmen Sie der Bearbeitung Ihrer Angaben gemäss <a href="/datenschutz" style="text-decoration:underline">Datenschutzerklärung</a> zu.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div><p class="eyebrow">Häufige Fragen</p><h2 class="h2">Gut <em>zu wissen</em>.</h2></div>
+      <p class="lead">Antworten rund um Catering und Partyservice von Ruen Thai. Sie haben ein Restaurant-Anliegen? Zur <a href="/enge" style="text-decoration:underline">Enge</a> oder nach <a href="/thalwil" style="text-decoration:underline">Thalwil</a>.</p>
+    </div>
+    {faq_html(CATERING_FAQ)}
   </div>
 </section>
 
@@ -843,6 +1006,7 @@ def main():
         write(f'{l["file"]}.html', page_location(l))
     write("ueber-uns.html", page_about())
     write("kontakt.html", page_contact())
+    write("catering.html", page_catering())
     write("impressum.html", page_impressum())
     write("datenschutz.html", page_datenschutz())
     write("404.html", page_404())
@@ -854,7 +1018,7 @@ def main():
                 (ROOT / f).unlink(); print("removed", f, "(Staging)")
         return
 
-    pages = ["/"] + [f'/{l["file"]}' for l in LOCS] + ["/ueber-uns", "/kontakt", "/impressum", "/datenschutz"]
+    pages = ["/"] + [f'/{l["file"]}' for l in LOCS] + ["/catering", "/ueber-uns", "/kontakt", "/impressum", "/datenschutz"]
     urls = "".join(
         f"  <url><loc>{BASE}{p}</loc><lastmod>{TODAY}</lastmod><changefreq>{'weekly' if p == '/' else 'monthly'}</changefreq><priority>{'1.0' if p == '/' else ('0.9' if p.count('/') == 1 and p not in ('/impressum', '/datenschutz') else '0.3')}</priority></url>\n"
         for p in pages
@@ -868,7 +1032,7 @@ def main():
     lines = [f"# {SITE['name']}", "", f"> {SITE['name']} ist eine Thai-Restaurantgruppe mit zwei Restaurants (Zürich Enge, Thalwil) und einem Take Away (Zürich Badenerstrasse). Das erste Restaurant eröffnete {SITE['since']} in Thalwil.", "", "## Standorte", ""]
     for l in LOCS:
         lines.append(f"- [{l['name']}]({BASE}/{l['file']}): {l['typeLabel']}, {addr_line(l)}, Tel. {l['telDisplay']}, Preisniveau {l['price']} pro Person.")
-    lines += ["", "## Wichtigste Seiten", "", f"- [Startseite]({BASE}/): Übersicht und Standortwahl", f"- [Über uns]({BASE}/ueber-uns): Geschichte seit {SITE['since']}", f"- [Kontakt]({BASE}/kontakt): Adressen, Telefon, Öffnungszeiten", f"- [Häufige Fragen]({BASE}/#faq)", "", "## Kontakt", "", f"Telefon Enge: {SITE['mainPhoneDisplay']} · Thalwil: 043 443 59 89 · Take Away: 043 817 47 80", ""]
+    lines += ["", "## Wichtigste Seiten", "", f"- [Startseite]({BASE}/): Übersicht und Standortwahl", f"- [Catering]({BASE}/catering): Thai-Catering und Partyservice für Firmenanlässe und Feiern, Anfrage online", f"- [Über uns]({BASE}/ueber-uns): Geschichte seit {SITE['since']}", f"- [Kontakt]({BASE}/kontakt): Adressen, Telefon, Öffnungszeiten", f"- [Häufige Fragen]({BASE}/#faq)", "", "## Kontakt", "", f"Telefon Enge: {SITE['mainPhoneDisplay']} · Thalwil: 043 443 59 89 · Take Away: 043 817 47 80", ""]
     write("llms.txt", "\n".join(lines))
 
 

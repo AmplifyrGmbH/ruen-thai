@@ -93,9 +93,8 @@
     });
   });
 
-  /* ---------- Reservationsformular ---------- */
-  var form = document.querySelector('form[data-reserve-form]');
-  if (form) {
+  /* ---------- Reservations- und Catering-Formulare ---------- */
+  document.querySelectorAll('form[data-reserve-form]').forEach(function (form) {
     var status = form.querySelector('.form__status');
     var dateInput = form.querySelector('input[type="date"]');
     if (dateInput) dateInput.min = new Date().toISOString().slice(0, 10);
@@ -107,11 +106,11 @@
       fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
         .then(function (j) {
-          status.textContent = j.ok ? 'Danke! Wir bestätigen Ihre Anfrage so rasch wie möglich.' : (j.message || 'Das hat leider nicht geklappt. Bitte rufen Sie uns an.');
+          status.textContent = j.ok ? (form.getAttribute('data-success') || 'Danke! Wir melden uns so rasch wie möglich.') : (j.message || 'Das hat leider nicht geklappt. Bitte rufen Sie uns an.');
           if (j.ok) form.reset();
         })
         .catch(function () { status.textContent = 'Das hat leider nicht geklappt. Bitte rufen Sie uns an.'; })
         .then(function () { btn.disabled = false; });
     });
-  }
+  });
 })();

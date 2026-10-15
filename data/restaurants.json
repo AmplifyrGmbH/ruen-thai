@@ -103,6 +103,7 @@
       ],
       "transit": "Bahnhof Enge (1 Min.), Parkhaus Park Hyatt (ca. 6 Min.)",
       "reserve": true,
+      "catering": true,
       "menuTitle": "Auszug aus der Speisekarte",
       "menuNote": "Preise in CHF, Stand frühere Website. Vor Livegang mit dem Betreiber abgleichen.",
       "menu": [
@@ -587,7 +588,7 @@
     },
     {
       "q": "Bieten Sie Catering oder Partyservice an?",
-      "a": "Ja, in der Enge (Ruen Thai by Suthita). Sagen Sie uns Menüwunsch und Gästezahl, wir kümmern uns um den Rest. Telefon 044 281 14 14."
+      "a": "Ja, über unser Restaurant Ruen Thai by Suthita in der Enge. Senden Sie uns Datum, Gästezahl und Menüwunsch über die Catering-Seite oder rufen Sie an: 044 281 14 14. Sie erhalten einen Menüvorschlag mit Offerte."
     },
     {
       "q": "Seit wann gibt es Ruen Thai?",

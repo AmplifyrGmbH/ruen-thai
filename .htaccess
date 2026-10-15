@@ -1,5 +1,5 @@
-# Ruen Thai — Apache-Konfiguration für Hostpoint (STAGING: Passwortschutz + noindex)
-# Alle Anfragen laufen über gate.php (HTTP-Basic-Auth, X-Robots-Tag noindex).
+# Ruen Thai — Apache-Konfiguration für Hostpoint (VORSCHAU: ohne Passwortschutz, aber noindex)
+# Öffentlich erreichbar, Suchmaschinen sollen die Seite noch nicht aufnehmen.
 # Zum Livegang: dieses File durch .htaccess.live ersetzen (siehe README).
 RewriteEngine On
 
@@ -7,16 +7,19 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Authorization-Header an PHP (FastCGI) durchreichen
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+# .html in der Adresse auf saubere URL umleiten
+RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
 
-# Alles über das Gate
-RewriteCond %{REQUEST_URI} !^/gate\.php$
-RewriteRule ^ /gate.php [L]
+# Saubere URLs auf .html-Dateien abbilden
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
 
-Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+ErrorDocument 404 /404.html
+DirectoryIndex index.html
 
-<FilesMatch "^(gate\.config\.php|\.htaccess|\.gitignore)$">
+<FilesMatch "^(gate\.config\.php|gate\.php|\.htaccess|\.gitignore)$">
   Require all denied
 </FilesMatch>
 

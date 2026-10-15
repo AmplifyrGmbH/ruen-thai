@@ -24,9 +24,9 @@ Danach die geänderten Dateien committen. Design: `assets/css/style.css`, Verhal
 php -S localhost:8000 tools/router.php
 ```
 
-## Staging: Passwortschutz und noindex (aktueller Zustand)
-Die Seite ist **passwortgeschützt und komplett noindex**:
-- Jede Anfrage läuft über `gate.php` (HTTP-Basic-Auth, Benutzer `ruenthai`). Ohne Passwort gibt es nur `401`.
+## Vorschau: öffentlich, aber noindex (aktueller Zustand)
+Die Seite ist **ohne Passwort erreichbar, aber komplett noindex** (`.htaccess` ohne Gate):
+- `gate.php` ist inaktiv und per `.htaccess` gesperrt. Passwortschutz wieder einschalten: `.htaccess` aus dem Commit `4b0eb06` wiederherstellen (alle Anfragen über `gate.php`).
 - `X-Robots-Tag: noindex` (Header), `<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">` auf jeder Seite, `robots.txt` mit `Disallow: /`, keine `sitemap.xml`/`llms.txt`.
 - Das Passwort steht **nicht im Repo** (das Repo ist öffentlich). Der bcrypt-Hash kommt aus dem GitHub-Secret `GATE_PASSWORD_HASH`; die Action erzeugt daraus auf dem Server `gate.config.php`. Lokal liegt eine Kopie in `gate.config.php` (gitignored). Fehlt die Datei, bleibt die Seite gesperrt.
 - Passwort ändern: neuen Hash erzeugen (`php -r 'echo password_hash("NEUES-PASSWORT", PASSWORD_BCRYPT, ["cost"=>12]);'`), Secret aktualisieren, Action erneut ausführen.
